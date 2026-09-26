@@ -1,0 +1,6 @@
+{
+  "name": "AutoReply WA - Balas Otomatis WhatsApp",
+  "description": "Aplikasi pengatur pesan otomatis WhatsApp berdasarkan kata kunci masuk dengan opsi jeda waktu tunggu (delay) yang fleksibel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

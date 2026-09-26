@@ -1,0 +1,143 @@
+import { RulePreset } from '../types/autoreply';
+
+export const DEFAULT_RULES = [
+  {
+    id: 'rule-1',
+    keyword: 'halo',
+    matchType: 'contains' as const,
+    replyMessage: 'Halo kak! 👋 Terima kasih sudah menghubungi kami. Ada yang bisa kami bantu hari ini?',
+    delaySeconds: 3,
+    isActive: true,
+    replyCount: 0,
+    createdAt: Date.now() - 3600000,
+    caseSensitive: false,
+  },
+  {
+    id: 'rule-2',
+    keyword: 'harga',
+    matchType: 'contains' as const,
+    replyMessage: 'Halo {nama}! 📋 Daftar harga produk kami mulai dari Rp 45.000 s/d Rp 150.000. Kakak tertarik dengan varian yang mana?',
+    delaySeconds: 5,
+    isActive: true,
+    replyCount: 0,
+    createdAt: Date.now() - 3000000,
+    caseSensitive: false,
+  },
+  {
+    id: 'rule-3',
+    keyword: 'ongkir',
+    matchType: 'contains' as const,
+    replyMessage: 'Untuk cek ongkir gratis dan promo, kirimkan alamat kecamatan dan kota tujuan ya kak! 🚚',
+    delaySeconds: 4,
+    isActive: true,
+    replyCount: 0,
+    createdAt: Date.now() - 2500000,
+    caseSensitive: false,
+  },
+  {
+    id: 'rule-4',
+    keyword: 'assalamualaikum',
+    matchType: 'contains' as const,
+    replyMessage: 'Waalaikumsalam warahmatullahi wabarakatuh 🙏 Selamat datang di layanan kami!',
+    delaySeconds: 2,
+    isActive: true,
+    replyCount: 0,
+    createdAt: Date.now() - 2000000,
+    caseSensitive: false,
+  },
+  {
+    id: 'rule-5',
+    keyword: 'jam buka',
+    matchType: 'contains' as const,
+    replyMessage: 'Jam operasional kami: Senin - Sabtu (08.00 - 21.00 WIB). Pesan di luar jam tersebut akan kami proses di jam kerja ya kak. Terima kasih! ⏰',
+    delaySeconds: 5,
+    isActive: true,
+    replyCount: 0,
+    createdAt: Date.now() - 1500000,
+    caseSensitive: false,
+  },
+];
+
+export const TEMPLATE_PRESETS: RulePreset[] = [
+  {
+    name: 'Toko Online & Olshop',
+    description: 'Cocok untuk jualan: tanya harga, stok, katalog, ongkir, dan rekening.',
+    rules: [
+      {
+        keyword: 'stok',
+        matchType: 'contains',
+        replyMessage: 'Semua produk yang ada di etalase ready stock kak! Silakan sebutkan produk yang diminati ya 😊',
+        delaySeconds: 4,
+        isActive: true,
+      },
+      {
+        keyword: 'rekening',
+        matchType: 'contains',
+        replyMessage: 'Pembayaran resmi kami hanya melalui BCA: 123-456-7890 a.n Toko Kami. Mohon konfirmasi bukti transfer jika sudah transfer ya.',
+        delaySeconds: 5,
+        isActive: true,
+      },
+      {
+        keyword: 'katalog',
+        matchType: 'contains',
+        replyMessage: 'Katalog lengkap beserta foto dan spesifikasi bisa dilihat di link berikut: https://toko.example.com/katalog ✨',
+        delaySeconds: 3,
+        isActive: true,
+      },
+      {
+        keyword: 'resi',
+        matchType: 'contains',
+        replyMessage: 'Nomor resi otomatis diupdate H+1 setelah pengiriman pukul 20:00 WIB ya kak 📦',
+        delaySeconds: 6,
+        isActive: true,
+      },
+    ],
+  },
+  {
+    name: 'Customer Service & Bisnis',
+    description: 'Format formal untuk kantor, konsultasi, dan pelayanan pelanggan.',
+    rules: [
+      {
+        keyword: 'info',
+        matchType: 'contains',
+        replyMessage: 'Terima kasih telah menghubungi Customer Service. Tim kami sedang meninjau pertanyaan Anda dan akan merespons sesaat lagi.',
+        delaySeconds: 5,
+        isActive: true,
+      },
+      {
+        keyword: 'alamat',
+        matchType: 'contains',
+        replyMessage: 'Kantor kami beralamat di: Jl. Sudirman No. 45, Jakarta Pusat. Buka Senin-Jumat pukul 09:00 - 17:00 WIB.',
+        delaySeconds: 3,
+        isActive: true,
+      },
+      {
+        keyword: 'keluhan',
+        matchType: 'contains',
+        replyMessage: 'Mohon maaf atas kendala yang dialami. Silakan kirimkan nomor tiket atau foto kendala agar tim teknis segera memeriksa.',
+        delaySeconds: 4,
+        isActive: true,
+      },
+    ],
+  },
+  {
+    name: 'Pribadi / Auto-Responder Santai',
+    description: 'Untuk pesan pribadi saat Anda sedang sibuk, menyetir, atau istirahat.',
+    rules: [
+      {
+        keyword: 'p',
+        matchType: 'exact',
+        replyMessage: 'Halo! Saya sedang ada kegiatan dan belum bisa cek HP. Ada keperluan penting? Tinggalkan pesan ya!',
+        delaySeconds: 5,
+        isActive: true,
+      },
+      {
+        keyword: 'dimana',
+        matchType: 'contains',
+        replyMessage: 'Lagi di luar nih, nanti kalau udah senggang langsung saya kabari yaa 🙏',
+        delaySeconds: 8,
+        isActive: true,
+      },
+    ],
+  },
+];
